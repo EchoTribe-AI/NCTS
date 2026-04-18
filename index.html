@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Plus+Jakarta+Sans:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#53433e",
+                        "on-error-container": "#93000a",
+                        "surface": "#fdf9f2",
+                        "primary": "#884531",
+                        "on-secondary-fixed-variant": "#3c4b3c",
+                        "inverse-surface": "#31302c",
+                        "surface-container-highest": "#e5e2db",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#8a6b4b",
+                        "on-tertiary-fixed": "#2b1701",
+                        "tertiary-fixed": "#ffdcbb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1c1c18",
+                        "surface-dim": "#dddad3",
+                        "surface-bright": "#fdf9f2",
+                        "secondary-fixed": "#d6e7d3",
+                        "on-primary-container": "#fff4f1",
+                        "primary-fixed-dim": "#ffb59f",
+                        "primary-fixed": "#ffdbd1",
+                        "on-tertiary-fixed-variant": "#5c4225",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f4f0e9",
+                        "surface-container-low": "#f7f3ec",
+                        "on-primary-fixed": "#3a0a00",
+                        "surface-tint": "#904b36",
+                        "primary-container": "#a65d47",
+                        "outline-variant": "#d9c1bb",
+                        "secondary-fixed-dim": "#bacbb8",
+                        "secondary-container": "#d3e4d0",
+                        "secondary": "#536252",
+                        "on-primary-fixed-variant": "#733521",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#576757",
+                        "on-tertiary-container": "#fff4ed",
+                        "surface-container-high": "#ebe8e1",
+                        "tertiary": "#6f5335",
+                        "tertiary-fixed-dim": "#e6c09a",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#ffb59f",
+                        "outline": "#86736d",
+                        "surface-variant": "#e5e2db",
+                        "surface-container": "#f1ede6",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1c1c18",
+                        "background": "#fdf9f2",
+                        "on-secondary-fixed": "#111f12"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif { font-family: 'Newsreader', serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-stone-50/80 backdrop-blur-md dark:bg-stone-950/80 fixed top-0 w-full z-50 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-6 py-4">
+<button class="text-orange-900 dark:text-orange-200 Active: scale-95 duration-150 ease-in-out">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-xl font-serif italic text-orange-950 dark:text-stone-50">Nurses Call The Shots</h1>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a friendly female nurse practitioner with a warm smile and professional attire in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCOq7E9DveBJkOpcUj8mQ-6KOzODg6jn_P_QAPwNAGAjNA7j-zR3Su2bRg3P20GFxU5bJiXHmXFulf8aiOxtMAt-IqSkkNGqOiZyEFh6fgXfvyvcno5ldZ_yfcTeoMKdO4J1peSq_khW5LNfTZozohsqqNPM3wVajHkdIvetqnuQumrpa4eMTc6qJpzWEZD_2lqmEgwi1PUr1FIht-0MprBWLebhXwFcPvl5FiQUfefGLtFeMUCmgyX0OimiRiBWRzolf4GUoTBU03"/>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-32">
+<!-- Hero Section -->
+<section class="px-6 py-8">
+<div class="relative rounded-3xl overflow-hidden h-[500px] mb-8 bg-surface-container shadow-sm">
+<img alt="Living Room" class="absolute inset-0 w-full h-full object-cover" data-alt="Sun-drenched luxury living room with soft cream linen sofa, warm wood accents, and lush indoor plants, peaceful morning atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB02TkD3pA4LCzcAIvYrqNqikPw-qqBQ4aZld4brYNzVEo3FGkhVNg7az8dLJfnxQse_kXFOgQPzy9FjTyOOO3mnTk8tDHMxkjMexjHF0kYTFceDdoxZSvHwI-YVZ3ks-P8CuT2YgXPfIIhLhRz0pzplXOK6j51hMP69Ylab_QwronGZtPf5CbY5kl4IHlyM4AkTlQxVyAPcZ3Lip2djN2KNB9upiz7s7PDUE_yM0dWpnJhjrGoBjCgjkx4MiCM9Yc4JcM4wxZmMkwP"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<span class="inline-block px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-widest mb-4">Your NP Best Friend</span>
+<h2 class="font-serif italic text-4xl text-white leading-tight mb-6">Expertise with a soul. Curated for your life.</h2>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full px-8 py-4 font-bold text-sm shadow-xl active:scale-95 transition-transform">
+                        Book a Consultation
+                    </button>
+</div>
+</div>
+</section>
+<!-- Elevated Therapies - Bento Grid Style for Mobile Stack -->
+<section class="px-6 py-4 space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="font-serif italic text-2xl text-primary">Elevated Therapies</h3>
+<span class="text-xs font-bold uppercase tracking-wider text-tertiary">View All</span>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Therapy 1 -->
+<div class="bg-surface-container-low rounded-2xl p-6 flex items-start gap-4 transition-all hover:bg-surface-container">
+<div class="bg-tertiary-fixed p-3 rounded-xl text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined">spa</span>
+</div>
+<div>
+<h4 class="font-bold text-lg text-on-surface mb-1">IV Hydration Retreat</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Personalized nutrient blends delivered in the comfort of your sanctuary.</p>
+</div>
+</div>
+<!-- Therapy 2 -->
+<div class="bg-surface-container-low rounded-2xl p-6 flex items-start gap-4 transition-all hover:bg-surface-container">
+<div class="bg-secondary-fixed p-3 rounded-xl text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined">medical_services</span>
+</div>
+<div>
+<h4 class="font-bold text-lg text-on-surface mb-1">Clinical Wellness</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Medical-grade diagnostics paired with holistic lifestyle coaching.</p>
+</div>
+</div>
+<!-- Therapy 3 -->
+<div class="bg-surface-container-low rounded-2xl p-6 flex items-start gap-4 transition-all hover:bg-surface-container">
+<div class="bg-primary-fixed p-3 rounded-xl text-on-primary-fixed-variant">
+<span class="material-symbols-outlined">timeline</span>
+</div>
+<div>
+<h4 class="font-bold text-lg text-on-surface mb-1">Longevity Journey</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">A long-term partnership focused on biological age optimization.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Expertise with a Soul - Content Card -->
+<section class="px-6 py-12 mt-4 bg-surface-container-low/50">
+<div class="space-y-4">
+<h3 class="font-serif italic text-3xl text-on-surface leading-tight">We believe wellness should feel like a conversation, not a prescription.</h3>
+<p class="text-on-surface-variant leading-relaxed font-medium">Our Nurse Practitioners combine the rigor of clinical medicine with the empathy of a best friend. We don't just treat symptoms; we curate your vitality.</p>
+<div class="pt-6">
+<div class="relative h-64 rounded-2xl overflow-hidden shadow-inner bg-surface-container">
+<img alt="Nurse Practitioner at work" class="w-full h-full object-cover" data-alt="Soft-focus shot of a healthcare professional in a cozy clinic environment, warm natural lighting, high-end wellness aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA70mT_ApAfNZqhYCs2pulPR7cGJeek549DvhkLXs6iNU-rjqcGhNy66w-9hF2poHDoZN-DVBMqcg37lRQrkPzZ_FbRHiWCoP9xA4QNgN6clfd0z9zxyjJlea_vCj8Ymqz9dHDF21I6itafJ9kevor0KsgMVeuLMv5WPP9suXElnS1-og2qW_BGINaW6rJDp8-5K1l_6JlOFoGVb9GBP-Gfoo0HtXtN_plZeeeLvK2NasszjEi3fyzv04K2ra9A4MYByfi4wemD_jRD"/>
+<div class="absolute inset-0 bg-primary/10"></div>
+</div>
+</div>
+<div class="flex flex-col gap-3 pt-6">
+<button class="bg-surface-container-high text-primary rounded-full px-8 py-4 font-bold text-sm">Meet Your NP</button>
+<button class="text-primary font-bold text-sm underline underline-offset-8 decoration-primary/30">Learn Our Philosophy</button>
+</div>
+</div>
+</section>
+<!-- Wellness Tracker (Custom Component) -->
+<section class="px-6 py-12">
+<h3 class="font-serif italic text-2xl text-on-surface mb-8">Your Concierge Journey</h3>
+<div class="relative pl-8 space-y-12">
+<!-- Timeline organic stroke -->
+<div class="absolute left-[15px] top-2 bottom-2 w-[2px] bg-tertiary/20 rounded-full"></div>
+<div class="relative">
+<div class="absolute -left-10 top-0 bg-tertiary-container w-8 h-8 rounded-full flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Digital Consultation</h5>
+<p class="text-sm text-on-surface-variant">20-minute video deep dive into your goals.</p>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -left-10 top-0 bg-primary-container w-8 h-8 rounded-full flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined text-sm">home</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Home Sanctuary Visit</h5>
+<p class="text-sm text-on-surface-variant">We bring the retreat to your living room.</p>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -left-10 top-0 bg-secondary w-8 h-8 rounded-full flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Ongoing Vitality Sync</h5>
+<p class="text-sm text-on-surface-variant">Monthly reviews and nutrient adjustments.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-100 dark:bg-stone-900 w-full py-12 px-6 mb-24">
+<div class="flex flex-col items-center space-y-4 w-full">
+<span class="font-serif italic text-lg text-orange-900 dark:text-stone-50">Nurses Call The Shots</span>
+<div class="flex gap-6">
+<a class="text-stone-500 dark:text-stone-400 text-xs hover:text-orange-900 dark:hover:text-orange-100 transition-colors" href="#">Privacy</a>
+<a class="text-stone-500 dark:text-stone-400 text-xs hover:text-orange-900 dark:hover:text-orange-100 transition-colors" href="#">Concierge Terms</a>
+<a class="text-stone-500 dark:text-stone-400 text-xs hover:text-orange-900 dark:hover:text-orange-100 transition-colors" href="#">Contact</a>
+</div>
+<p class="font-sans text-xs text-center leading-relaxed text-stone-500 dark:text-stone-400">© 2024 Nurses Call The Shots. Your Wellness, Curated.</p>
+</div>
+</footer>
+<!-- BottomNavBar -->
+<nav class="bg-stone-50/90 backdrop-blur-lg dark:bg-stone-950/90 fixed bottom-0 w-full z-50 rounded-t-3xl shadow-[0_-4px_24px_rgba(28,28,24,0.04)]">
+<div class="flex justify-around items-center w-full px-4 pt-3 pb-8">
+<a class="flex flex-col items-center gap-1 text-orange-900 dark:text-orange-200 bg-orange-100/80 dark:bg-orange-900/40 px-6 py-2 rounded-2xl scale-110 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-sans text-[10px] uppercase tracking-widest font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-stone-500 dark:text-stone-400 px-6 py-2 hover:text-orange-800 dark:hover:text-orange-100 transition-all" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-sans text-[10px] uppercase tracking-widest font-bold">Schedule</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-stone-500 dark:text-stone-400 px-6 py-2 hover:text-orange-800 dark:hover:text-orange-100 transition-all" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-sans text-[10px] uppercase tracking-widest font-bold">Vitals</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-stone-500 dark:text-stone-400 px-6 py-2 hover:text-orange-800 dark:hover:text-orange-100 transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-sans text-[10px] uppercase tracking-widest font-bold">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>
