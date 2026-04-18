@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nurses Call The Shots — Launch Checklist</title>
+<style>
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --color-text-primary: #1a1a18;
+  --color-text-secondary: #595959;
+  --color-text-tertiary: #888780;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-border-primary: #d3d1c7;
+  --color-border-secondary: #e8e6de;
+  --color-border-tertiary: #f0ede4;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #e8e6de;
+    --color-text-secondary: #b4b2a9;
+    --color-text-tertiary: #888780;
+    --color-background-primary: #1e1e1c;
+    --color-background-secondary: #2a2a28;
+    --color-border-primary: #4a4a48;
+    --color-border-secondary: #3a3a38;
+    --color-border-tertiary: #2a2a28;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--font-sans);background:var(--color-background-primary);color:var(--color-text-primary);font-size:13px;line-height:1.6}
+body{padding:2rem 1rem}
+.wrap{padding:1rem;max-width:880px;margin:0 auto}
+.filter-row{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap;align-items:center}
+.filter-btn{font-size:12px;padding:5px 12px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-secondary);cursor:pointer;font-family:var(--font-sans)}
+.filter-btn.on{background:var(--color-background-secondary);color:var(--color-text-primary);font-weight:500;border-color:var(--color-border-primary)}
+.progress-bar{flex:1;height:6px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden;min-width:80px}
+.progress-fill{height:100%;background:#3D5C3A;border-radius:3px;transition:width .3s}
+.progress-label{font-size:12px;color:var(--color-text-secondary);white-space:nowrap}
+.group{margin-bottom:1.5rem}
+.group-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.group-title{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-secondary)}
+.group-badge{font-size:10px;padding:2px 8px;border-radius:var(--border-radius-md);font-weight:500}
+.badge-kelly{background:#EAF0E8;color:#3D5C3A}
+.badge-coco{background:#E6F1FB;color:#185FA5}
+.badge-both{background:#F1EFE8;color:#5F5E5A}
+.item{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:0.5px solid var(--color-border-tertiary);cursor:pointer;user-select:none}
+.item:last-child{border-bottom:none}
+.item.done .item-text{text-decoration:line-through;color:var(--color-text-tertiary)}
+.item.done .item-note{color:var(--color-text-tertiary)}
+.check{width:16px;height:16px;border-radius:3px;border:1.5px solid var(--color-border-secondary);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.item.done .check{background:#3D5C3A;border-color:#3D5C3A}
+.check-mark{width:8px;height:8px;display:none}
+.item.done .check-mark{display:block}
+.check-mark::after{content:'';display:block;width:8px;height:5px;border-left:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
+.item-body{flex:1}
+.item-text{font-size:13px;color:var(--color-text-primary);line-height:1.4;margin-bottom:2px}
+.item-note{font-size:11px;color:var(--color-text-secondary);line-height:1.5}
+.owner-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.dot-kelly{background:#3D5C3A}
+.dot-coco{background:#378ADD}
+.dot-both{background:#888780}
+.hidden{display:none}
+</style>
+
+<div class="wrap">
+<div class="filter-row">
+  <button class="filter-btn on" onclick="filter('all',this)">All tasks</button>
+  <button class="filter-btn" onclick="filter('kelly',this)">Kelly</button>
+  <button class="filter-btn" onclick="filter('coco',this)">Coco</button>
+  <button class="filter-btn" onclick="filter('both',this)">Together</button>
+  <div style="flex:1"></div>
+  <div class="progress-bar"><div class="progress-fill" id="pbar" style="width:0%"></div></div>
+  <span class="progress-label" id="plabel">0 of 0 done</span>
+</div>
+
+<div id="list"></div>
+</div>
+
+<script>
+const groups = [
+  {
+    title: "Week 1–2 — legal foundation",
+    items: [
+      {owner:"both", text:"Decide on medical director partner", note:"Get quotes from Prax Health and Guardian Medical Direction — compare coverage, cost, and whether they support mobile IV in CA"},
+      {owner:"kelly", text:"Register nursescalltheshots.com domain", note:"Also grab the email forwarding for angels@nursescalltheshots.com"},
+      {owner:"coco", text:"Confirm CA NP license is active", note:"Log into CA BRN portal and screenshot the active status — needed for entity formation"},
+      {owner:"coco", text:"Confirm furnishing number is active", note:"Required before you can order or administer IV fluids and additives"},
+      {owner:"coco", text:"Confirm DEA registration status", note:"Needed for Zofran, Toradol, and any controlled additives — if not active, begin application now"},
+      {owner:"kelly", text:"Find healthcare formation attorney", note:"One 2-hour consult to confirm Professional Corporation structure and equity setup — budget $500–$1,500"},
+      {owner:"both", text:"Finalize equity split and cap table structure", note:"12% to angels is the working number — attorney needs to confirm before you say it out loud to investors"},
+    ]
+  },
+  {
+    title: "Week 2–4 — entity + insurance",
+    items: [
+      {owner:"kelly", text:"File California Professional Corporation", note:"Cannot operate under a regular LLC for clinical services — use a healthcare-specific formation service, not LegalZoom"},
+      {owner:"kelly", text:"Obtain EIN for the PC", note:"Apply online at IRS.gov — takes 10 minutes, instant for online applications"},
+      {owner:"kelly", text:"Open business bank account", note:"Needs EIN + Articles of Incorporation. Chase, Mercury, or Relay all work well for small business"},
+      {owner:"coco", text:"Get malpractice insurance quotes", note:"NSO, CM&F, or Proliability — must explicitly confirm in writing: mobile IV, off-site care, and emergency med administration are covered"},
+      {owner:"coco", text:"Sign malpractice policy", note:"Do not take a single client before this is active"},
+      {owner:"both", text:"Sign medical director agreement", note:"Once you've selected your partner — ensure scope explicitly includes IV therapy, mobile services, and your full add-on list"},
+    ]
+  },
+  {
+    title: "Week 3–5 — clinical infrastructure",
+    items: [
+      {owner:"coco", text:"Draft written IV protocols", note:"One per formulation: Hydration Reset, Immune Support, Performance/Recovery. Use your medical director partner's templates as a starting point"},
+      {owner:"coco", text:"Build emergency protocol kit", note:"Epi, Benadryl, BP cuff, oxygen access plan, and a written transfer-to-ER protocol. Document everything."},
+      {owner:"coco", text:"Establish pharmacy relationship", note:"Primary: Olympia or Hallandale. Backup: Strive Pharmacy. Confirm IV fluid sourcing, additive sourcing, and compounding compliance"},
+      {owner:"coco", text:"Set up sharps disposal + medical waste contract", note:"Required before first client — do not skip this"},
+      {owner:"kelly", text:"Select and set up EHR", note:"IntakeQ or SimplePractice for Phase 1 — HIPAA compliant, fast to launch, includes digital consent and intake forms"},
+      {owner:"kelly", text:"Build intake + consent forms", note:"Intake screening, contraindication checklist, treatment consent, and HIPAA notice — digital, not paper"},
+      {owner:"coco", text:"Assemble emergency kit", note:"Physical kit must be in your car before any client visit"},
+    ]
+  },
+  {
+    title: "Week 4–6 — angel outreach",
+    items: [
+      {owner:"coco", text:"Identify 8–10 people in your network who already use IV therapy", note:"Start with the people who've already asked when you're launching — these are your warmest leads"},
+      {owner:"both", text:"Have 1:1 conversations before sending anything formal", note:"The pitch is a conversation first, a document second — personal outreach from Coco carries the most weight here"},
+      {owner:"kelly", text:"Send the one-pager as a follow-up, not an opener", note:"Share after the conversation. Lead with the relationship, not the PDF"},
+      {owner:"kelly", text:"Track angel conversations in a simple spreadsheet", note:"Name, date contacted, amount interested, status — nothing fancy yet"},
+      {owner:"both", text:"Set a soft close date for the round", note:"Give angels a deadline — 30 days from first outreach is reasonable. Open rounds that linger lose momentum"},
+    ]
+  },
+  {
+    title: "Week 5–7 — launch setup",
+    items: [
+      {owner:"kelly", text:"Build landing page", note:"Simple: what you do, who it's for, how to book, and an email capture. Squarespace works for Phase 1"},
+      {owner:"kelly", text:"Set up Stripe for memberships and one-off bookings", note:"Recurring billing for $299/month membership tier — test the full flow before going live"},
+      {owner:"kelly", text:"Set up Square for pop-up POS", note:"Mobile card reader for in-person pop-up events"},
+      {owner:"both", text:"Identify first 2 pop-up partner locations", note:"Pilates studio, infrared sauna, gym, or wellness space in Oakland. Offer 10–15% revenue share and co-marketing"},
+      {owner:"kelly", text:"Draft pop-up partner agreement", note:"Simple one-page: revenue share terms, scheduling, liability, and cancellation — have attorney review"},
+      {owner:"both", text:"Schedule soft launch beta", note:"10–15 private clients from Coco's existing network before any public marketing. Test everything end to end."},
+    ]
+  },
+  {
+    title: "Ongoing — defer until revenue is live",
+    items: [
+      {owner:"both", text:"Do not apply for Nevada licensure yet", note:"Start this only after CA is generating $10K+/month consistently for 2+ months"},
+      {owner:"both", text:"Do not build GLP-1 program publicly yet", note:"Prepare backend quietly (pharmacy, intake, protocols) — do not market until IV base is stable"},
+      {owner:"both", text:"Do not sign a lease or buy equipment for a physical location", note:"Brick and mortar only makes sense after $15K/month MRR is proven for 3+ months"},
+      {owner:"coco", text:"Do not accept insurance billing yet", note:"Cash only for Phase 1 — insurance adds credentialing complexity that will slow your launch by months"},
+    ]
+  }
+];
+
+let state = {};
+let currentFilter = 'all';
+
+function render(){
+  const container = document.getElementById('list');
+  container.innerHTML = '';
+  let total = 0, done = 0;
+  groups.forEach((g,gi)=>{
+    const visItems = g.items.filter(item => currentFilter==='all' || item.owner===currentFilter);
+    if(visItems.length===0) return;
+    const gEl = document.createElement('div');
+    gEl.className = 'group';
+    const badge = g.items[0].owner;
+    gEl.innerHTML = `<div class="group-head"><span class="group-title">${g.title}</span></div>`;
+    visItems.forEach((item,ii)=>{
+      const key = gi+'-'+g.items.indexOf(item);
+      const isDone = !!state[key];
+      if(isDone) done++;
+      total++;
+      const row = document.createElement('div');
+      row.className = 'item'+(isDone?' done':'');
+      row.innerHTML = `<div class="owner-dot dot-${item.owner}"></div><div class="check"><div class="check-mark"></div></div><div class="item-body"><div class="item-text">${item.text}</div><div class="item-note">${item.note}</div></div>`;
+      row.addEventListener('click',()=>{
+        state[key]=!state[key];
+        render();
+      });
+      gEl.appendChild(row);
+    });
+    container.appendChild(gEl);
+  });
+  document.getElementById('plabel').textContent = done+' of '+total+' done';
+  document.getElementById('pbar').style.width = (total?Math.round(done/total*100):0)+'%';
+}
+
+function filter(f, btn){
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  render();
+}
+
+render();
+</script>
+</body>
+</html>

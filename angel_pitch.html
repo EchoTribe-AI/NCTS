@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nurses Call The Shots — Angel Investor One-Pager</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F8F6F1;
+    --cream-dark: #EDE9E0;
+    --ink: #1A1917;
+    --ink-mid: #4A4845;
+    --ink-light: #8C8984;
+    --sage: #3D5C3A;
+    --sage-light: #EAF0E8;
+    --divider: #DDD9D0;
+    --gold: #8A7148;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .no-print { display: none; }
+    @page { margin: 0; size: letter; }
+  }
+
+  html, body {
+    background: #E8E4DC;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .page {
+    background: var(--cream);
+    width: 816px;
+    min-height: 1056px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--sage);
+    padding: 32px 44px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .brand { }
+  .brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: #F8F6F1;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    margin-bottom: 5px;
+  }
+  .brand-tag {
+    font-size: 11px;
+    color: rgba(248,246,241,0.65);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  .header-meta {
+    text-align: right;
+  }
+  .conf-badge {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(248,246,241,0.5);
+    border: 0.5px solid rgba(248,246,241,0.3);
+    padding: 4px 10px;
+    margin-bottom: 8px;
+  }
+  .founders {
+    font-size: 12px;
+    color: rgba(248,246,241,0.8);
+    line-height: 1.7;
+  }
+  .founders strong {
+    color: #F8F6F1;
+    font-weight: 500;
+  }
+
+  /* BODY */
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 290px;
+    gap: 0;
+  }
+
+  /* LEFT COLUMN */
+  .left {
+    padding: 32px 36px 28px 44px;
+    border-right: 0.5px solid var(--divider);
+  }
+
+  .section { margin-bottom: 26px; }
+  .section:last-child { margin-bottom: 0; }
+
+  .sec-label {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 500;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sec-label::after {
+    content: '';
+    display: block;
+    height: 0.5px;
+    flex: 1;
+    background: var(--divider);
+  }
+
+  .beats { }
+  .beat {
+    display: flex;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 0.5px solid var(--divider);
+  }
+  .beat:last-child { border-bottom: none; }
+  .beat-n {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--divider);
+    min-width: 20px;
+    flex-shrink: 0;
+    line-height: 1.3;
+    font-style: italic;
+  }
+  .beat-body { }
+  .beat-title {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--sage);
+    margin-bottom: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .beat-text {
+    font-size: 12px;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+
+  /* PHASE TABLE */
+  .phase-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 0.5px solid var(--divider);
+    align-items: baseline;
+  }
+  .phase-row:last-child { border-bottom: none; }
+  .phase-label {
+    font-size: 10px;
+    color: var(--ink-light);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .phase-text {
+    font-size: 12px;
+    color: var(--ink-mid);
+  }
+  .phase-text strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* RIGHT COLUMN */
+  .right {
+    padding: 32px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* DEAL BOX */
+  .deal-box {
+    background: var(--sage);
+    border-radius: 2px;
+    padding: 18px;
+  }
+  .deal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: #F8F6F1;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .deal-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 0.5px solid rgba(248,246,241,0.15);
+    gap: 8px;
+  }
+  .deal-row:last-child { border-bottom: none; }
+  .dl { font-size: 10px; color: rgba(248,246,241,0.6); letter-spacing: 0.03em; }
+  .dv { font-size: 11px; color: #F8F6F1; font-weight: 500; text-align: right; }
+
+  /* FORECAST */
+  .fc-title {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .fc-title::after {
+    content: '';
+    display: block;
+    height: 0.5px;
+    flex: 1;
+    background: var(--divider);
+  }
+
+  .fc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+  }
+  .fc-table th {
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    font-weight: 400;
+    padding: 4px 0;
+    border-bottom: 0.5px solid var(--divider);
+    text-align: left;
+  }
+  .fc-table th:last-child,
+  .fc-table td:last-child { text-align: right; }
+  .fc-table td {
+    padding: 5px 0;
+    border-bottom: 0.5px solid var(--divider);
+    color: var(--ink-mid);
+  }
+  .fc-table tr:last-child td { border-bottom: none; }
+  .fc-table td.qval { color: var(--ink); font-weight: 500; }
+  .fc-table tr.total-row td {
+    color: var(--ink);
+    font-weight: 500;
+    border-top: 1px solid var(--divider);
+    border-bottom: none;
+    padding-top: 8px;
+    font-size: 12px;
+  }
+
+  .bar-wrap { margin-top: 10px; }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+  }
+  .bar-label { font-size: 10px; color: var(--ink-light); min-width: 20px; }
+  .bar-track { flex: 1; height: 5px; background: var(--cream-dark); border-radius: 2px; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--sage); border-radius: 2px; }
+  .bar-val { font-size: 10px; color: var(--ink-mid); min-width: 36px; text-align: right; font-weight: 500; }
+
+  /* METRICS */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .metric-card {
+    background: var(--cream-dark);
+    padding: 10px 12px;
+    border-radius: 2px;
+  }
+  .metric-label { font-size: 9px; color: var(--ink-light); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+  .metric-val { font-size: 17px; font-family: 'Cormorant Garamond', serif; color: var(--ink); font-weight: 600; }
+  .metric-sub { font-size: 9px; color: var(--ink-light); margin-top: 1px; }
+
+  /* FOOTER */
+  .footer {
+    border-top: 0.5px solid var(--divider);
+    padding: 14px 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-note {
+    font-size: 10px;
+    color: var(--ink-light);
+    font-style: italic;
+  }
+  .footer-contact {
+    font-size: 10px;
+    color: var(--ink-mid);
+    text-align: right;
+    line-height: 1.7;
+  }
+  .footer-contact a { color: var(--sage); text-decoration: none; }
+
+  /* PRINT BUTTON */
+  .print-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--sage);
+    color: #F8F6F1;
+    border: none;
+    padding: 10px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="brand">
+      <div class="brand-name">Nurses Call The Shots</div>
+      <div class="brand-tag">Mobile IV &amp; Concierge Wellness · Bay Area, CA</div>
+    </div>
+    <div class="header-meta">
+      <div class="conf-badge">Confidential — Angel Round</div>
+      <div class="founders">
+        <strong>Kimberly Cohen</strong>, NP — Clinical Lead<br>
+        <strong>Kelly Hagen</strong> — Operations &amp; Partnerships
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- LEFT -->
+    <div class="left">
+
+      <div class="section">
+        <div class="sec-label">The opportunity</div>
+        <div class="beats">
+          <div class="beat">
+            <div class="beat-n">1</div>
+            <div class="beat-body">
+              <div class="beat-title">The insight</div>
+              <div class="beat-text">The Bay Area has some of the most wellness-conscious, high-income adults in the country — and most of them have already tried IV therapy. They love it. They just can't get it from someone they actually trust. The clinics feel corporate. The pop-ups are inconsistent. Nobody has built the version that feels like calling your NP best friend.</div>
+            </div>
+          </div>
+          <div class="beat">
+            <div class="beat-n">2</div>
+            <div class="beat-body">
+              <div class="beat-title">The gap</div>
+              <div class="beat-text">What's missing is a licensed, relationship-based provider who comes to you — and who you can text. That relationship doesn't exist at scale in the Bay Area yet.</div>
+            </div>
+          </div>
+          <div class="beat">
+            <div class="beat-n">3</div>
+            <div class="beat-body">
+              <div class="beat-title">The approach</div>
+              <div class="beat-text">Mobile IV pop-ups + on-call bookings, anchored by a monthly membership. Coco runs clinical. Kelly runs operations, partnerships, and growth. Lean overhead, high margins, recurring revenue from month one.</div>
+            </div>
+          </div>
+          <div class="beat">
+            <div class="beat-n">4</div>
+            <div class="beat-body">
+              <div class="beat-title">The proof</div>
+              <div class="beat-text">Coco's existing Oakland network already uses IV therapy and has been asking when she launches. Pre-validated demand before a dollar in marketing spend. The unit economics — 45 IVs/month at $300 average — mirror what's working for solo NP practices in LA, SF, and Denver right now.</div>
+            </div>
+          </div>
+          <div class="beat">
+            <div class="beat-n">5</div>
+            <div class="beat-body">
+              <div class="beat-title">The ask</div>
+              <div class="beat-text">$100K from 4–6 investors who already know the value of what we're building — because they've lived it. This buys six months of operating runway, full legal and clinical infrastructure, and the pop-up network to hit $10K/month by month five. In return: equity, service credits, and first access as we expand.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="sec-label">Growth roadmap</div>
+        <div class="phase-row">
+          <div class="phase-label">Phase 1<br>M1–3</div>
+          <div class="phase-text"><strong>Legal + soft launch.</strong> CA Professional Corp formed, supervising physician via medical director partner (Prax Health / Guardian), malpractice secured. Private beta: 10–20 IVs with Coco's warm network.</div>
+        </div>
+        <div class="phase-row">
+          <div class="phase-label">Phase 2<br>M3–5</div>
+          <div class="phase-text"><strong>Pop-up network + membership.</strong> 2–3 partner locations (pilates, sauna, wellness studios). Monthly IV membership live. Target: 20 members + 40 IVs/month = $10K+ MRR.</div>
+        </div>
+        <div class="phase-row">
+          <div class="phase-label">Phase 3<br>M5–9</div>
+          <div class="phase-text"><strong>GLP-1 + NAD programs launch.</strong> High-margin recurring subscription layer on top of IV base. Referral program drives organic growth from angel network outward.</div>
+        </div>
+        <div class="phase-row">
+          <div class="phase-label">Phase 4<br>M10+</div>
+          <div class="phase-text"><strong>Brick + mortar considered</strong> once MRR exceeds $15K consistently. Nevada (Incline Village) expansion evaluated at 25+ members. Aesthetic services added.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+
+      <!-- DEAL -->
+      <div class="deal-box">
+        <div class="deal-title">The investor offer</div>
+        <div class="deal-row"><span class="dl">Total raise</span><span class="dv">$100,000</span></div>
+        <div class="deal-row"><span class="dl">Check range</span><span class="dv">$17K – $25K</span></div>
+        <div class="deal-row"><span class="dl">Angels targeted</span><span class="dv">4 – 6</span></div>
+        <div class="deal-row"><span class="dl">Equity offered</span><span class="dv">~12% pro-rata</span></div>
+        <div class="deal-row"><span class="dl">Service credits</span><span class="dv">80% of investment</span></div>
+        <div class="deal-row"><span class="dl">First access</span><span class="dv">GLP-1 · NAD · beta pricing</span></div>
+        <div class="deal-row"><span class="dl">Runway purchased</span><span class="dv">6 months</span></div>
+      </div>
+
+      <!-- FORECAST -->
+      <div>
+        <div class="fc-title">12-month revenue forecast</div>
+        <table class="fc-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>IVs</th>
+              <th>Mbrs</th>
+              <th>GLP-1</th>
+              <th>MRR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="color:var(--ink-light);font-size:10px">M1–2</td><td>13 avg</td><td>2</td><td>—</td><td class="qval">$4.5K</td></tr>
+            <tr><td style="color:var(--ink-light);font-size:10px">M3</td><td>28</td><td>10</td><td>—</td><td class="qval">$11.4K</td></tr>
+            <tr><td style="color:var(--ink-light);font-size:10px">M4–5</td><td>41 avg</td><td>18</td><td>3</td><td class="qval">$20.3K</td></tr>
+            <tr><td style="color:var(--ink-light);font-size:10px">M6</td><td>50</td><td>24</td><td>12</td><td class="qval">$32.0K</td></tr>
+            <tr><td style="color:var(--ink-light);font-size:10px">M7–9</td><td>60 avg</td><td>32</td><td>22</td><td class="qval">$41.5K</td></tr>
+            <tr><td style="color:var(--ink-light);font-size:10px">M10–12</td><td>75 avg</td><td>44</td><td>38</td><td class="qval">$57.2K</td></tr>
+            <tr class="total-row"><td colspan="4">Year 1 total</td><td>~$390K</td></tr>
+          </tbody>
+        </table>
+
+        <div class="bar-wrap">
+          <div style="font-size:9px;color:var(--ink-light);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;margin-top:10px">Revenue mix at month 12</div>
+          <div class="bar-row"><span class="bar-label" style="font-size:9px;min-width:42px">IV</span><div class="bar-track"><div class="bar-fill" style="width:45%"></div></div><span class="bar-val">$24K</span></div>
+          <div class="bar-row"><span class="bar-label" style="font-size:9px;min-width:42px">Mbr</span><div class="bar-track"><div class="bar-fill" style="width:35%"></div></div><span class="bar-val">$13.8K</span></div>
+          <div class="bar-row"><span class="bar-label" style="font-size:9px;min-width:42px">GLP-1</span><div class="bar-track"><div class="bar-fill" style="width:41%"></div></div><span class="bar-val">$16.0K</span></div>
+          <div class="bar-row"><span class="bar-label" style="font-size:9px;min-width:42px">VIP</span><div class="bar-track"><div class="bar-fill" style="width:19%"></div></div><span class="bar-val">$7.5K</span></div>
+        </div>
+      </div>
+
+      <!-- KEY METRICS -->
+      <div>
+        <div class="fc-title">Unit economics</div>
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="metric-label">Avg IV ticket</div>
+            <div class="metric-val">$300</div>
+            <div class="metric-sub">Bay Area w/ add-ons</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Gross margin / IV</div>
+            <div class="metric-val">~73%</div>
+            <div class="metric-sub">Cost ~$50–75 to deliver</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Member LTV</div>
+            <div class="metric-val">$3.6K</div>
+            <div class="metric-sub">$299/mo × 12</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">CAC (est.)</div>
+            <div class="metric-val">$50</div>
+            <div class="metric-sub">Partner referrals, warm network</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-note">Equity % subject to legal review. Service credits have no expiration. Forecast based on Bay Area NP mobile benchmarks — not guaranteed.</div>
+    <div class="footer-contact">
+      Kelly Hagen &amp; Kimberly Cohen · <a href="mailto:angels@nursescalltheshots.com">angels@nursescalltheshots.com</a>
+    </div>
+  </div>
+
+</div>
+
+<button class="print-btn no-print" onclick="window.print()">Print / Save PDF</button>
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nurses Call The Shots — Angel Pitch</title>
+<style>
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Monaco', 'Menlo', monospace;
+  --color-text-primary: #1a1a18;
+  --color-text-secondary: #595959;
+  --color-text-tertiary: #888780;
+  --color-text-info: #185fa5;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f3;
+  --color-background-info: #e6f1fb;
+  --color-border-tertiary: #e0dcd2;
+  --color-border-info: #185fa5;
+  --color-border-warning: #854f0b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #e8e6de;
+    --color-text-secondary: #b4b2a9;
+    --color-text-tertiary: #888780;
+    --color-text-info: #85b7eb;
+    --color-background-primary: #1e1e1c;
+    --color-background-secondary: #2a2a28;
+    --color-background-info: #0c447c22;
+    --color-border-tertiary: #4a4a48;
+    --color-border-info: #85b7eb;
+    --color-border-warning: #ef9f27;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--font-sans);background:var(--color-background-primary);color:var(--color-text-primary);font-size:13px;line-height:1.6}
+body{padding:2rem 1rem}
+.wrap{padding:1.5rem;max-width:880px;margin:0 auto}
+.tabs{display:flex;gap:0;border-bottom:0.5px solid var(--color-border-tertiary);margin-bottom:0;overflow-x:auto}
+.tab{padding:9px 16px;font-size:12px;color:var(--color-text-secondary);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;white-space:nowrap;font-family:var(--font-sans)}
+.tab.on{color:var(--color-text-primary);font-weight:500;border-bottom-color:var(--color-text-info)}
+.pane{display:none;padding:1.25rem 0}
+.pane.on{display:block}
+.beat{display:flex;gap:14px;padding:12px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.beat:last-child{border-bottom:none}
+.bnum{font-size:11px;font-family:var(--font-mono);color:var(--color-text-info);min-width:24px;flex-shrink:0;margin-top:2px;font-weight:500}
+.btitle{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.btext{font-size:12px;color:var(--color-text-secondary);line-height:1.65}
+.bgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.bcard{border-radius:var(--border-radius-lg);border:0.5px solid var(--color-border-tertiary);padding:14px}
+.blabel{font-size:10px;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.bval{font-size:22px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
+.bsub{font-size:11px;color:var(--color-text-secondary)}
+.tier{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px;margin-bottom:10px}
+.tier.featured{border:2px solid var(--color-border-info)}
+.tbadge{display:inline-block;font-size:11px;background:var(--color-background-info);color:var(--color-text-info);padding:3px 10px;border-radius:var(--border-radius-md);margin-bottom:8px}
+.ttitle{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.trow{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.trow:last-child{border-bottom:none}
+.tlab{color:var(--color-text-secondary)}
+.tval{color:var(--color-text-primary);font-weight:500}
+.timeline{margin-top:4px}
+.tl-row{display:flex;gap:12px;padding:10px 0;border-bottom:0.5px solid var(--color-border-tertiary);align-items:flex-start}
+.tl-row:last-child{border-bottom:none}
+.tl-phase{font-size:11px;font-family:var(--font-mono);color:var(--color-text-info);min-width:70px;flex-shrink:0;font-weight:500;margin-top:1px}
+.tl-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
+.tl-sub{font-size:11px;color:var(--color-text-secondary);line-height:1.55}
+.warn{font-size:12px;color:var(--color-text-secondary);border-left:2px solid var(--color-border-warning);padding-left:10px;line-height:1.65;margin-top:14px}
+.note{font-size:12px;color:var(--color-text-secondary);border-left:2px solid var(--color-border-tertiary);padding-left:10px;line-height:1.65;margin-top:12px}
+.rule{display:flex;gap:12px;padding:10px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.rule:last-child{border-bottom:none}
+.rnum{font-size:11px;font-family:var(--font-mono);color:var(--color-text-secondary);min-width:24px;flex-shrink:0;margin-top:1px}
+.rtitle{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
+.rsub{font-size:11px;color:var(--color-text-secondary);line-height:1.6}
+.tagrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{font-size:11px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:3px 9px;color:var(--color-text-secondary)}
+</style>
+<div class="wrap">
+<div class="tabs">
+  <button class="tab on" onclick="show('pitch')">The pitch</button>
+  <button class="tab" onclick="show('offer')">Investor offer</button>
+  <button class="tab" onclick="show('numbers')">The numbers</button>
+  <button class="tab" onclick="show('use')">Use of funds</button>
+  <button class="tab" onclick="show('rules')">Pitch rules</button>
+</div>
+
+<div id="pitch" class="pane on">
+  <div class="beat">
+    <div class="bnum">01</div>
+    <div>
+      <div class="btitle">The insight</div>
+      <div class="btext">The Bay Area has one of the highest concentrations of wellness-conscious, high-income adults in the country — and most of them have already tried IV therapy. They love it. They just can't get it reliably, affordably, or from someone they actually trust. The big IV lounges are clinical and impersonal. The pop-up services are inconsistent. Nobody has built the version of this that feels like calling your NP best friend.</div>
+    </div>
+  </div>
+  <div class="beat">
+    <div class="bnum">02</div>
+    <div>
+      <div class="btitle">The gap</div>
+      <div class="btext">Right now, if you want quality IV hydration in Oakland or SF, you either book a stranger through a Medspa app, overpay at a retail lounge, or go without. What's missing is a trusted, licensed, relationship-based provider who comes to you — and who you can actually text. That relationship doesn't exist at scale yet. We're building it.</div>
+    </div>
+  </div>
+  <div class="beat">
+    <div class="bnum">03</div>
+    <div>
+      <div class="btitle">The approach</div>
+      <div class="btext">Nurses Call The Shots is a mobile IV hydration and concierge wellness service built on two things: Coco's clinical credibility as a licensed NP, and a membership model that creates predictable recurring revenue. We come to you — home, office, pop-up event — and we build a real client relationship, not a transaction. Kelly runs operations, partnerships, and growth. Coco runs the clinical side. The business is built to operate lean and hit $10K/month within 90 days of launch.</div>
+    </div>
+  </div>
+  <div class="beat">
+    <div class="bnum">04</div>
+    <div>
+      <div class="btitle">The proof</div>
+      <div class="btext">Coco's existing Oakland network already uses IV therapy. These aren't cold leads — they're warm referrals from people who know her, trust her clinically, and have asked when she's launching. We have a validated demand signal before spending a dollar on marketing. The model — 45 IVs/month at $225 average — is the same math that's working for solo NP practices across every major metro right now.</div>
+    </div>
+  </div>
+  <div class="beat">
+    <div class="bnum">05</div>
+    <div>
+      <div class="btitle">The ask</div>
+      <div class="btext">We're raising $100K from 4–6 investors — people who already know the value of what we're building because they've lived it. Your investment covers six months of operating runway, legal infrastructure, clinical setup, and launch marketing. In return: equity in the company, $0.80 on every dollar invested returned as service credits, and first access as we expand into GLP-1, NAD, and concierge care. At month six, we'll be at $10K+/month and positioned to scale.</div>
+    </div>
+  </div>
+  <div class="note">Delivery note: This pitch is meant to be spoken, not emailed. The warm network version skips the formal intro and opens with: "You know me, you know Coco, and you've probably already asked when she's launching something — here's what we're building."</div>
+</div>
+
+<div id="offer" class="pane">
+  <div class="tier featured">
+    <div class="tbadge">Target investor</div>
+    <div class="ttitle">Angel round — $100K total</div>
+    <div class="trow"><span class="tlab">Minimum check size</span><span class="tval">$16,700 (6 angels) / $20,000 (5 angels) / $25,000 (4 angels)</span></div>
+    <div class="trow"><span class="tlab">Total equity offered</span><span class="tval">12% — to be split pro-rata by check size</span></div>
+    <div class="trow"><span class="tlab">Service credits</span><span class="tval">80% of investment returned as NCTS service credits</span></div>
+    <div class="trow"><span class="tlab">Credit example</span><span class="tval">$20K invested → $16,000 in IV + wellness service credits</span></div>
+    <div class="trow"><span class="tlab">Credit redemption window</span><span class="tval">24 months from launch date</span></div>
+    <div class="trow"><span class="tlab">First access</span><span class="tval">Priority booking, early access to GLP-1 + NAD programs, beta pricing</span></div>
+  </div>
+  <div class="tier">
+    <div class="ttitle">What investors actually get</div>
+    <div class="trow"><span class="tlab">Equity</span><span class="tval">Pro-rata share of 12% of the company</span></div>
+    <div class="trow"><span class="tlab">Credits (real cost to us)</span><span class="tval">~$18–36K actual cost on $80K credit face value</span></div>
+    <div class="trow"><span class="tlab">Relationship</span><span class="tval">Direct access to founders — not a fund manager</span></div>
+    <div class="trow"><span class="tlab">Upside</span><span class="tval">Phase 2 expansion (GLP-1, NAD, brick + mortar) at ground floor valuation</span></div>
+  </div>
+  <div class="warn">Equity % TBD — the 12% recommendation is a starting position. Get a healthcare startup attorney to review before formalizing. The credit structure is the differentiated offer here — lead with it. It makes the investment tangible and personal in a way equity alone doesn't.</div>
+</div>
+
+<div id="numbers" class="pane">
+  <div class="bgrid">
+    <div class="bcard"><div class="blabel">Total raise</div><div class="bval">$100K</div><div class="bsub">4–6 angels, SF warm network</div></div>
+    <div class="bcard"><div class="blabel">Cash available</div><div class="bval">$20K</div><div class="bsub">20% of raise — 80% returned as credits</div></div>
+    <div class="bcard"><div class="blabel">Runway target</div><div class="bval">6 months</div><div class="bsub">~$3.3K/month burn pre-revenue</div></div>
+    <div class="bcard"><div class="blabel">Revenue target</div><div class="bval">$10K/mo</div><div class="bsub">By month 4–5 post-launch</div></div>
+  </div>
+  <div class="bgrid">
+    <div class="bcard"><div class="blabel">IVs needed at target</div><div class="bval">~45/mo</div><div class="bsub">At $225 avg ticket</div></div>
+    <div class="bcard"><div class="blabel">Membership path</div><div class="bval">$10.4K/mo</div><div class="bsub">20 members ($299) + 25 on-demand IVs</div></div>
+    <div class="bcard"><div class="blabel">Credit face value</div><div class="bval">$80K</div><div class="bsub">Actual fulfillment cost: ~$18–36K</div></div>
+    <div class="bcard"><div class="blabel">Break-even point</div><div class="bval">~Month 3</div><div class="bsub">Assuming 2 pop-up partners at launch</div></div>
+  </div>
+  <div class="note">The credit structure is financially smart: $80K in face-value credits costs roughly $18–36K to fulfill (IV supplies ~$50–75 per session at $225 ticket). You're giving investors real value while protecting cash. The angels also become your first paying members — which drives early volume and social proof simultaneously.</div>
+</div>
+
+<div id="use" class="pane">
+  <div class="timeline">
+    <div class="tl-row">
+      <div class="tl-phase">Month 1–2</div>
+      <div>
+        <div class="tl-title">Legal + clinical infrastructure</div>
+        <div class="tl-sub">Professional Corporation formation, supervising physician agreement (via Prax Health or Guardian Medical Direction), malpractice secured, EHR setup (IntakeQ or SimplePractice), clinical protocols drafted, emergency kit assembled. Est. cost: $8–12K of the $20K cash.</div>
+      </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-phase">Month 2–3</div>
+      <div>
+        <div class="tl-title">Soft launch + first pop-up partners</div>
+        <div class="tl-sub">Private beta with Coco's existing network (10–15 IVs), 2 pop-up location agreements signed (pilates, wellness studio, gym), booking system live, membership offer activated, QR codes per partner. Est. cost: $4–6K remaining cash + early revenue covers ops.</div>
+      </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-phase">Month 3–5</div>
+      <div>
+        <div class="tl-title">Revenue ramp + membership build</div>
+        <div class="tl-sub">3 recurring monthly pop-ups, 15–20 active members, 30–40 IVs/month, referral program launched. Revenue covers monthly burn. Credit redemptions begin creating organic client volume from angel network.</div>
+      </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-phase">Month 5–6</div>
+      <div>
+        <div class="tl-title">Validate + evaluate Phase 2</div>
+        <div class="tl-sub">$10K+/month stable. Begin GLP-1 infrastructure (pharmacy, protocols, intake flow) quietly. Evaluate Nevada (Incline Village) licensing — begin only if 25+ members and 40+ IVs/month confirmed. Begin Series A or second angel conversation from a position of revenue.</div>
+      </div>
+    </div>
+  </div>
+  <div class="warn">$20K cash for 6 months is lean. The model works only if Coco maintains existing income during months 1–2 while legal setup completes. Do not quit current employment before first paying clients are live.</div>
+</div>
+
+<div id="rules" class="pane">
+  <div class="rule">
+    <div class="rnum">01</div>
+    <div>
+      <div class="rtitle">Lead with the relationship, not the business</div>
+      <div class="rsub">Every angel in Coco's network already trusts her clinically. The pitch is "Coco is launching and I want you to be part of it" — not a cold investor deck. Open conversations personally before anything formal is sent.</div>
+    </div>
+  </div>
+  <div class="rule">
+    <div class="rnum">02</div>
+    <div>
+      <div class="rtitle">Lead with credits, follow with equity</div>
+      <div class="rsub">$16K in IV service credits is tangible and personal to someone who already gets IVs. Equity in a pre-revenue startup is abstract. Sequence matters: credits → first access → equity.</div>
+    </div>
+  </div>
+  <div class="rule">
+    <div class="rnum">03</div>
+    <div>
+      <div class="rtitle">Never say "we could hit $10K/month" — say "the model requires 45 IVs"</div>
+      <div class="rsub">Specific mechanics are more credible than projections. Show the math. 45 IVs at $225 average is 11 per week. That's 2–3 per day. That's a real thing a real NP can do.</div>
+    </div>
+  </div>
+  <div class="rule">
+    <div class="rnum">04</div>
+    <div>
+      <div class="rtitle">Name the risk before they ask</div>
+      <div class="rsub">The honest note for every angel: "The biggest risk is the 30–45 day legal setup window before we earn dollar one. We've budgeted for that. It's the reason we're raising 6 months of runway, not 4."</div>
+    </div>
+  </div>
+  <div class="rule">
+    <div class="rnum">05</div>
+    <div>
+      <div class="rtitle">The angels ARE the first clients</div>
+      <div class="rsub">Structure credit redemption so the first invitations to book are sent to investors. They become testimonials, referral sources, and proof-of-demand simultaneously. Make this explicit in the pitch.</div>
+    </div>
+  </div>
+  <div class="tagrow">
+    <span class="tag">4–6 angels</span>
+    <span class="tag">$100K raise</span>
+    <span class="tag">12% equity (TBD)</span>
+    <span class="tag">80% service credits</span>
+    <span class="tag">6-month runway</span>
+    <span class="tag">$10K/mo target</span>
+    <span class="tag">Warm network first</span>
+  </div>
+</div>
+</div>
+
+<script>
+function show(id){
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  event.target.classList.add('on');
+}
+</script>
+</body>
+</html>
