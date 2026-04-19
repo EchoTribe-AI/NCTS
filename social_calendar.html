@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nurses Call The Shots — 30-Day Social Media Calendar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --terra:      #C4714A;
+    --terra-deep: #A0522D;
+    --cream:      #F7EDE0;
+    --warm-white: #FDF8F2;
+    --bark:       #2D1A0E;
+    --mist:       #DDD0C4;
+    --sage:       #7A8C7E;
+    --gold:       #C4954A;
+    --deep-sage:  #4A6050;
+    --blush:      #E8C4A8;
+
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans:  'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); background: var(--warm-white); color: var(--bark); overflow-x: hidden; line-height: 1.7; }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--bark);
+    padding: 52px 64px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,113,74,0.18) 0%, transparent 70%);
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 200px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,149,74,0.1) 0%, transparent 70%);
+  }
+  .header-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+  }
+  .header-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+  header h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.15;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  header h1 em { font-style: italic; color: var(--terra); }
+  header p {
+    font-size: 0.85rem;
+    color: var(--cream);
+    opacity: 0.5;
+    font-weight: 300;
+    max-width: 580px;
+    line-height: 1.75;
+    position: relative;
+    z-index: 1;
+  }
+  .header-tag {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--bark);
+    background: var(--terra);
+    padding: 7px 16px;
+    border-radius: 2px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--terra-deep);
+    padding: 24px 64px;
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .stat { display: flex; flex-direction: column; gap: 3px; }
+  .stat-num { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; color: var(--cream); line-height: 1; }
+  .stat-label { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream); opacity: 0.5; font-weight: 400; }
+  .stat-divider { width: 1px; height: 36px; background: rgba(247,237,224,0.2); }
+
+  /* ── LEGEND ── */
+  .legend {
+    background: var(--cream);
+    padding: 18px 64px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+    border-bottom: 1px solid var(--mist);
+  }
+  .legend-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; color: var(--bark); opacity: 0.4; margin-right: 4px; }
+  .legend-item { display: flex; align-items: center; gap: 7px; font-size: 0.7rem; font-weight: 400; color: var(--bark); opacity: 0.75; }
+  .legend-dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
+
+  /* ── CONTROLS ── */
+  .controls {
+    padding: 18px 64px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--mist);
+  }
+  .filter-label { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--bark); opacity: 0.45; margin-right: 4px; }
+  .filter-btn {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 7px 16px;
+    border-radius: 2px;
+    border: 1px solid var(--mist);
+    background: transparent;
+    color: var(--bark);
+    cursor: pointer;
+    transition: all 0.2s;
+    opacity: 0.65;
+    min-height: 36px;
+  }
+  .filter-btn:hover, .filter-btn.active { background: var(--bark); color: var(--cream); border-color: var(--bark); opacity: 1; }
+
+  /* ── CALENDAR ── */
+  .calendar { padding: 44px 64px 80px; max-width: 1400px; margin: 0 auto; }
+
+  .week-block { margin-bottom: 52px; }
+  .week-header { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
+  .week-num { font-family: var(--font-serif); font-size: 3.5rem; font-weight: 400; color: var(--mist); line-height: 1; min-width: 60px; }
+  .week-theme-block {}
+  .week-theme-label { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: var(--terra); margin-bottom: 4px; }
+  .week-theme { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 400; color: var(--bark); line-height: 1.25; }
+  .week-theme em { font-style: italic; color: var(--terra-deep); }
+  .week-divider { flex: 1; height: 1px; background: linear-gradient(to right, var(--mist), transparent); }
+
+  /* ── POST GRID ── */
+  .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
+
+  /* ── POST CARD ── */
+  .post-card {
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 24px;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+    overflow: hidden;
+  }
+  .post-card:hover { transform: translateY(-3px); box-shadow: 0 14px 44px rgba(45,26,14,0.1); }
+  .post-card-accent { position: absolute; top: 0; left: 0; width: 3px; height: 100%; border-radius: 4px 0 0 4px; }
+
+  .post-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 8px; }
+  .post-day { font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; color: var(--bark); opacity: 0.38; }
+  .post-platforms { display: flex; gap: 4px; }
+  .platform-tag { font-size: 0.52rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 3px 7px; border-radius: 2px; }
+  .platform-ig { background: #E1306C18; color: #B5004E; }
+  .platform-fb { background: #1877F218; color: #0A52B5; }
+
+  .post-type-tag { display: inline-flex; align-items: center; gap: 5px; font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; padding: 4px 9px; border-radius: 2px; margin-bottom: 10px; }
+
+  .post-headline { font-family: var(--font-serif); font-size: 1.12rem; font-weight: 400; line-height: 1.35; color: var(--bark); margin-bottom: 9px; }
+  .post-copy { font-size: 0.78rem; line-height: 1.72; font-weight: 300; color: var(--bark); opacity: 0.72; margin-bottom: 14px; }
+
+  .post-caption-toggle {
+    font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+    color: var(--terra); cursor: pointer; border: none; background: none;
+    font-family: var(--font-sans); padding: 8px 0; margin-bottom: 0;
+    transition: opacity 0.2s; display: block; min-height: 36px;
+  }
+  .post-caption-toggle:hover { opacity: 0.6; }
+
+  .post-caption-full {
+    display: none; margin-top: 12px; padding-top: 14px;
+    border-top: 1px solid var(--mist);
+    font-size: 0.78rem; line-height: 1.8; font-weight: 300;
+    color: var(--bark); opacity: 0.85; white-space: pre-line;
+  }
+  .post-caption-full.open { display: block; }
+
+  .post-hashtags { margin-top: 12px; font-size: 0.68rem; color: var(--sage); font-weight: 400; line-height: 1.65; }
+  .post-visual-note {
+    margin-top: 12px; padding: 10px 14px;
+    background: var(--warm-white); border-radius: 3px;
+    font-size: 0.7rem; font-weight: 300; color: var(--bark); opacity: 0.62;
+    display: flex; align-items: flex-start; gap: 7px; line-height: 1.6;
+  }
+  .post-visual-note::before { content: '📷'; font-size: 0.78rem; flex-shrink: 0; }
+
+  /* TYPE COLORS */
+  .type-education  { background: rgba(74,96,80,0.1);  color: #3D6050; }
+  .type-myth       { background: rgba(196,113,74,0.12); color: #A0522D; }
+  .type-story      { background: rgba(196,149,74,0.12); color: #8B6914; }
+  .type-quote      { background: rgba(45,26,14,0.09);  color: #2D1A0E; }
+  .type-engagement { background: rgba(122,140,126,0.12);color: #3D6050; }
+  .type-tip        { background: rgba(160,82,45,0.1);  color: #8B3A14; }
+
+  .accent-education  { background: var(--deep-sage); }
+  .accent-myth       { background: var(--terra); }
+  .accent-story      { background: var(--gold); }
+  .accent-quote      { background: var(--bark); }
+  .accent-engagement { background: var(--sage); }
+  .accent-tip        { background: var(--terra-deep); }
+
+  /* ── EXPORT BAR ── */
+  .export-bar {
+    padding: 16px 64px;
+    background: var(--cream);
+    border-top: 1px solid var(--mist);
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .export-btn {
+    font-family: var(--font-sans); font-size: 0.68rem; letter-spacing: 0.14em;
+    text-transform: uppercase; font-weight: 500; padding: 10px 22px; border-radius: 2px;
+    border: 1px solid var(--bark); background: var(--bark); color: var(--cream);
+    cursor: pointer; transition: background 0.2s;
+  }
+  .export-btn:hover { background: var(--terra-deep); border-color: var(--terra-deep); }
+  .export-note { font-size: 0.7rem; font-weight: 300; opacity: 0.45; }
+
+  .hidden { display: none !important; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 600px) {
+    header, .stats-bar, .legend, .controls, .calendar, .export-bar { padding-left: 20px; padding-right: 20px; }
+    header { padding-top: 36px; padding-bottom: 32px; }
+    header h1 { font-size: 1.9rem; }
+    .stats-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .stat-divider { display: none; }
+    .controls { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .controls::-webkit-scrollbar { display: none; }
+    .filter-btn { flex-shrink: 0; white-space: nowrap; }
+    .calendar { padding-top: 28px; padding-bottom: 60px; }
+    .posts-grid { grid-template-columns: 1fr; }
+    .post-card { padding: 18px; }
+    .week-header { flex-direction: column; gap: 6px; }
+    .week-divider { display: none; }
+    .export-bar { flex-direction: column; }
+    .export-btn { width: 100%; text-align: center; }
+  }
+
+  @media print {
+    .controls, .export-bar { display: none; }
+    .post-caption-full { display: block !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-eyebrow">30-Day Social Media Calendar</div>
+  <h1>Nurses Call The Shots<br/><em>Your NP Best Friend.</em></h1>
+  <p>Instagram &amp; Facebook · Oakland, CA &amp; Bay Area · Pre-launch awareness → Founding Member waitlist · 3 posts/week</p>
+  <span class="header-tag">Founding Member Launch Strategy</span>
+</header>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-num">30</span><span class="stat-label">Days</span></div>
+  <div class="stat-divider"></div>
+  <div class="stat"><span class="stat-num">13</span><span class="stat-label">Posts</span></div>
+  <div class="stat-divider"></div>
+  <div class="stat"><span class="stat-num">3×</span><span class="stat-label">Per Week</span></div>
+  <div class="stat-divider"></div>
+  <div class="stat"><span class="stat-num">6</span><span class="stat-label">Content Types</span></div>
+  <div class="stat-divider"></div>
+  <div class="stat"><span class="stat-num">IG+FB</span><span class="stat-label">Platforms</span></div>
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <span class="legend-label">Type</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#4A6050"></span>Education</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#C4714A"></span>Myth-Bust</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#C4954A"></span>Story</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#2D1A0E"></span>Quote</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#7A8C7E"></span>Engagement</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#A0522D"></span>Tip</span>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <span class="filter-label">Filter</span>
+  <button class="filter-btn active" onclick="filterPosts('all',this)">All Posts</button>
+  <button class="filter-btn" onclick="filterPosts('education',this)">Education</button>
+  <button class="filter-btn" onclick="filterPosts('myth',this)">Myth-Bust</button>
+  <button class="filter-btn" onclick="filterPosts('story',this)">Story</button>
+  <button class="filter-btn" onclick="filterPosts('quote',this)">Quote</button>
+  <button class="filter-btn" onclick="filterPosts('engagement',this)">Engagement</button>
+  <button class="filter-btn" onclick="filterPosts('tip',this)">Tip</button>
+</div>
+
+<div class="calendar">
+
+  <!-- ══ WEEK 1 ══ -->
+  <div class="week-block">
+    <div class="week-header">
+      <div class="week-num">01</div>
+      <div class="week-theme-block">
+        <div class="week-theme-label">Week 1 Theme</div>
+        <div class="week-theme">This isn't what <em>you're used to.</em></div>
+      </div>
+      <div class="week-divider"></div>
+    </div>
+    <div class="posts-grid">
+
+      <div class="post-card" data-type="education">
+        <div class="post-card-accent accent-education"></div>
+        <div class="post-card-top">
+          <span class="post-day">Day 1 · Monday</span>
+          <div class="post-platforms"><span class="platform-tag platform-ig">IG</span><span class="platform-tag platform-fb">FB</span></div>
+        </div>
+        <span class="post-type-tag type-education">Education</span>
+        <div class="post-headline">Mobile IV therapy had a problem. Nobody actually knew your name.</div>
+        <div class="post-copy">Introducing NCTS — and why we're building something categorically different from every drip bar you've tried.</div>
+        <button class="post-caption-toggle" onclick="toggleCaption(this)">▸ View Full Caption &amp; Hashtags</button>
+        <div class="post-caption-full">
+Here's the thing about most IV therapy experiences:
+
+You book online. You choose a treatment from a dropdown. A nurse shows up. Pushes fluids. Leaves.
+
+Maybe it helps. Maybe it doesn't. Either way — they don't know your name the second time.
+
+That model works fine for a hangover. It doesn't work for a woman who's been running on empty for six weeks, seeing three practitioners, and still not getting answers.
+
+That's the gap we're building for.
+
+Nurses Call The Shots is a mobile IV and concierge wellness service. But the real product isn't the IV. It's the relationship with your NP — someone who actually knows your history, texts you back, and isn't reading you from a dropdown menu.
+
+Kimberly Cohen (Coco), NP, is that person.
+
+We're launching in Oakland and the Bay Area — and we're looking for our founding members.
+
+More on that soon. Follow along. 🌿
+
+— Coco, NP · Nurses Call The Shots
+        </div>
+        <div class="post-hashtags">#NursesCallTheShots #MobileWellness #OaklandWellness #BayAreaHealth #IVTherapy #ConciergeCare #NursePractitioner #WomensWellness #OaklandCA #HolisticHealth</div>
+        <div class="post-visual-note">Coco on camera — talking head, warm interior (living room or kitchen). Relaxed, direct to camera, no scrubs — dressed like herself. Light and airy, terracotta tones in the background. Caption does the heavy lifting; she just introduces the brand in 30 seconds.</div>
+      </div>
+
+      <div class="post-card" data-type="myth">
+        <div class="post-card-accent accent-myth"></div>
+        <div class="post-card-top">
+          <span class="post-day">Day 3 · Wednesday</span>
+          <div class="post-platforms"><span class="platform-tag platform-ig">IG</span><span class="platform-tag platform-fb">FB</span></div>
+        </div>
+        <span class="post-type-tag type-myth">Myth-Bust</span>
+        <div class="post-headline">"IV therapy is for hangovers." Let's fix that.</div>
+        <div class="post-copy">The most damaging myth in our entire category — and why it's kept the women who need this most from ever booking.</div>
+        <button class="post-caption-toggle" onclick="toggleCaption(this)">▸ View Full Caption &amp; Hashtags</button>
+        <div class="post-caption-full">
+The hangover drip ruined IV therapy's reputation for a lot of people who actually need it.
+
+Because now when a woman who's exhausted, depleted, and chronically under-resourced hears "IV therapy" — she pictures a party bus, a Bachelor cast, and a $250 Pedialyte.
+
+That's not who this is for.
+
+Here's who actually benefits from IV therapy:
+
+🌿 Women navigating chronic fatigue who've been told their labs "look fine"
+🌿 High-functioning professionals whose bodies are running on stress hormones and caffeine
+🌿 People post-illness who can't seem to get back to baseline
+🌿 Anyone whose supplement stack is expensive and probably not absorbing the way they need it to
+
+IV delivery bypasses the gut entirely. Whatever you're taking orally — the bioavailability is a fraction of what lands directly in your bloodstream. That's not a marketing claim. That's pharmacokinetics.
+
+The real use case for IV therapy isn't recovery from a Saturday night. It's recovery from the last six months.
+
+We'll be talking a lot more about this. Follow along — and if any of this sounds like someone you know, send this to them. 🌿
+        </div>
+        <div class="post-hashtags">#IVTherapyFacts #NotJustForHangovers #MobileIV #WomensHealth #ChronicFatigue #OaklandWellness #NursePractitioner #BayAreaWellness #IVHydration #FunctionalWellness</div>
+        <div class="post-visual-note">Clean flat lay — IV bag, fresh greenery, a warm mug, real home surface (not a clinical tray). No logos, no clinical feel. Or a short Reel: Coco debunking the hangover myth direct-to-camera, casual and direct. Text overlay on opening frame: "IV therapy isn't just for hangovers."</div>
+      </div>
+
+      <div class="post-card" data-type="quote">
+        <div class="post-card-accent accent-quote"></div>
+        <div class="post-card-top">
+          <span class="post-day">Day 5 · Friday</span>
+          <div class="post-platforms"><span class="platform-tag platform-ig">IG</span><span class="platform-tag platform-fb">FB</span></div>
+        </div>
+        <span class="post-type-tag type-quote">Quote</span>
+        <div class="post-headline">"I don't need a doctor. I need someone I can actually talk to."</div>
+        <div class="post-copy">The sentence that inspired this entire company — in the words of the women we're building for.</div>
+        <button class="post-caption-toggle" onclick="toggleCaption(this)">▸ View Full Caption &amp; Hashtags</button>
+        <div class="post-caption-full">
+"I don't need a doctor. I need someone I can actually talk to."
+
+I've heard some version of this sentence more times than I can count.
+
+From women who are smart, self-aware, and doing everything right — and still feel like the healthcare system isn't actually seeing them.
+
+The 15-minute appointment. The "your labs look fine." The referral to another specialist who has a six-week wait and won't know your name either.
+
+It's not that the doctors are bad. It's that the system wasn't designed for what you're actually dealing with.
+
+I started Nurses Call The Shots because I believe there's a better model. One where your provider knows your history. Texts you back. Shows up where you are — literally and figuratively.
+
+That's what we're building.
+
+Founding members get first access when we launch. Link in bio to join the waitlist. 🌿
+
+— Coco, NP
+        </div>
+        <div class="post-hashtags">#NPCare #ConciergeMedicine #WomensHealthcare #ActuallyListening #OaklandHealth #NursePractitioner #MobileWellness #BayAreaWellness #HealthcareGap #NursesCallTheShots</div>
+        <div class="post-visual-note">Styled quote graphic — cream background, bark-colored Playfair Display serif for the quote, small terracotta botanical line element. Coco's name and credential as attribution. Clean, shareable, save-worthy. Alternatively: Coco on camera reading this quote herself — raw and personal.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ WEEK 2 ══ -->
+  <div class="week-block">
+    <div class="week-header">
+      <div class="week-num">02</div>
+      <div class="week-theme-block">
+        <div class="week-theme-label">Week 2 Theme</div>
+        <div class="week-theme">We <em>see you.</em></div>
+      </div>
+      <div class="week-divider"></div>
+    </div>
+    <div class="posts-grid">
+
+      <div class="post-card" data-type="engagement">
+        <div class="post-card-accent accent-engagement"></div>
+        <div class="post-card-top">
+          <span class="post-day">Day 8 · Monday</span>
+          <div class="post-platforms"><span class="platform-tag platform-ig">IG</span><span class="platform-tag platform-fb">FB</span></div>
+        </div>
+        <span class="post-type-tag type-engagement">Engagement</span>
+        <div class="post-headline">Running on empty — but which kind?</div>
+        <div class="post-copy">The highest-shareability post of the calendar. No solutions. Just recognition. Let them feel seen.</div>
+        <button class="post-caption-toggle" onclick="toggleCaption(this)">▸ View Full Caption &amp; Hashtags</button>
+        <div class="post-caption-full">
+Tell me if this sounds familiar:
+
+You're tired. But it's not the kind of tired that sleep fixes.
+
+You've been "meaning to slow down" for about four months. You take your supplements most days. You had labs done and everything came back "normal." You've been dealing with a low-grade something for long enough that you've started to think maybe this is just how you feel now.
+
+Which of these actually sounds like you? 👇
+
+☕ Running on caffeine and willpower
+😶 Numb — going through the motions
+🤒 Not sick enough to stop, not well enough to feel good
+🧩 Doing everything right and still not seeing results
+💭 Quietly wondering if something's actually wrong
+
+No wrong answers. I'm genuinely asking — because what I'm building is for exactly who responds here.
+
+Drop your answer below. 🌿
+        </div>
+        <div class="post-hashtags">#WomensWellness #ChronicFatigue #BurnoutRecovery #OaklandWellness #RunningOnEmpty #BayAreaHealth #HealingJourney #NursesCallTheShots #FunctionalHealth #ActuallyTired</div>
+        <div class="post-visual-note">Simple illustrated multiple choice graphic — cream background, warm serif type, five options with emoji. Clean and scannable. Or Coco on camera reading this casually, phone in hand, in a car or kitchen. Conversational, not produced. The rawness is the point.</div>
+      </div>
+
+      <div class="post-card" data-type="education">
+        <div class="post-card-accent accent-education"></div>
+        <div class="post-card-top">
+          <span class="post-day">Day 10 · Wednesday</span>
+          <div class="post-platforms"><span class="platform-tag platform-ig">IG</span><span class="platform-tag platform-fb">FB</span></div>
+        </div>
+        <span class="post-type-tag type-education">Education</span>
+        <div class="post-headline">"Your labs look fine." Why that sentence has stopped helping you.</div>
+        <div class="post-copy">The most validating educational post of the calendar. Explains the gap between standard lab ranges and functional wellness — without bashing doctors.</div>
+        <button class="post-caption-toggle" onclick="toggleCaption(this)">▸ View Full Caption &amp; Hashtags</button>
+        <div class="post-caption-full">
+"Your labs look fine."
+
+If you've heard this sentence and still felt like something was wrong — you weren't imagining it.
+
+Here's what's actually happening:
+
+Standard lab reference ranges are designed to identify disease. They're calibrated to catch what's pathological — not to optimize how you feel. So when your TSH, B12, or vitamin D comes back "in range," what that often means is: you're not sick enough to flag.
+
+That's not the same as feeling well.
+
+Functional wellness asks a different question. Not "what's wrong with you?" but "what does your body need to actually thrive?"
+
+A lot of women I see are living in the gap between "nothing is technically wrong" and "I genuinely don't feel like myself." That gap is real. It has causes. And there's a lot we can do about it.
+
+As an NP, my scope of practice lets me look at your health differently than a GP running a standard panel. I'm not here to diagnose — I'm here to listen, look at the full picture, and help you feel like yourself again.
+
+That's what a real provider relationship looks like.
+
+Founding member waitlist is open. Link in bio. 🌿
+        </div>
+        <div class="post-hashtags">#YourLabsLookFine #FunctionalWellness #WomensHealth #NursePractitioner #HormoneHealth #ChronicFatigue #OaklandNP #BayAreaWellness #IntegrativeHealth #NursesCallTheShots</div>
+        <div class="post-visual-note">Carousel — 4 slides. Slide 1: "Your labs look fine." (large text, cream bg). Slide 2: What standard ranges actually measure. Slide 3: What the gap looks like. Slide 4: What an NP does differently. Clean, educational, saveable. High save-rate format.</div>
+      </div>
+
+      <div class="post-card" data-type="tip">
+        <div class="post-card-accent accent-tip"></div>
+        <div class="post-card-top">
+          <span class="post-day">Day 12 · Friday</span>
+          <div class="post-platforms"><span class="platform-tag platform-ig">IG</span><span class="platform-tag platform-fb">FB</span></div>
+        </div>
+        <span class="post-type-tag type-tip">Practical Tip</span>
+        <div class="post-headline">5 signs your body is depleted — not just stressed.</div>
+        <div class="post-copy">Free clinical value that builds trust before the ask. The highest-save post type. Bridges from "I'm tired" to "I need support."</div>
+        <button class="post-caption-toggle" onclick="toggleCaption(this)">▸ View Full Caption &amp; Hashtags</button>
+        <div class="post-caption-full">
+Stress and depletion feel similar from the inside. But they have different causes — and different solutions.
+
+Here's how I tell them apart clinically:
+
+1️⃣ Sleep doesn't restore you.
+Stress makes it hard to fall asleep. Depletion means you sleep 8 hours and still wake up exhausted. If rest isn't restoring you, your body is missing something — not just wound up.
+
+2️⃣ You've lost tolerance for things that didn't used to bother you.
+Loud environments, a packed schedule, even social plans that should feel fun. Depleted nervous systems have less buffer. Everything costs more than it used to.
+
+3️⃣ Your appetite has changed — but not in an obvious way.
+Not necessarily less hungry. More like disconnected from hunger cues. Reaching for food out of habit or need for stimulation rather than actual hunger.
+
+4️⃣ You feel better after an IV, a really good meal, or a rest day — but it doesn't last.
+Your body is telling you exactly what it needs. It just can't hold onto it.
+
+5️⃣ You're doing "everything right" and still feel like something's off.
+The supplements, the sleep hygiene, the green smoothie. When the inputs are right and the output is still wrong — that's a delivery problem, not a discipline problem.
+
+Sound familiar? Save this and share it with someone who needs to see it.
+
+We can help. Link in bio. 🌿
+        </div>
+        <div class="post-hashtags">#DepletionVsStress #WomensWellness #NursePractitioner #FunctionalHealth #ChronicFatigue #NervousSystemHealth #OaklandHealth #BayAreaWellness #NursesCallTheShots #BodySignals</div>
+        <div class="post-visual-note">5-slide carousel. Each slide: large number in Playfair Display, one sign per slide, 2-3 lines of body copy in DM Sans. Cream backgrounds, terracotta number accents. Final slide: NCTS name + "Founding member waitlist open — link in bio." Clean, clinical-warm, highly saveable.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ WEEK 3 ══ -->
+  <div class="week-block">
+    <div class="week-header">
+      <div class="week-num">03</div>
+      <div class="week-theme-block">
+        <div class="week-theme-label">Week 3 Theme</div>
+        <div class="week-theme">Meet <em>Coco.</em></div>
+      </div>
+      <div class="week-divider"></div>
+    </div>
+    <div class="posts-grid">
+
+      <div class="post-card" data-type="story">
+        <div class="post-card-accent accent-story"></div>
+        <div class="post-card-top">
+          <span class="post-day">Day 15 · Monday</span>
+          <div class="post-platforms"><span class="platform-tag platform-ig">IG</span><span class="platform-tag platform-fb">FB</span></div>
+        </div>
+        <span class="post-type-tag type-story">Story</span>
+        <div class="post-headline">Why I left traditional practice to show up at your door instead.</div>
+        <div class="post-copy">Coco's origin story. The moment she knew the clinic model wasn't enough — and what she's building instead.</div>
+        <button class="post-caption-toggle" onclick="toggleCaption(this)">▸ View Full Caption &amp; Hashtags</button>
+        <div class="post-caption-full">
+Hi. I'm Coco. NP, founder, and your NP best friend — if you'll have me.
+
+Here's the honest version of why I started this:
+
+I've been a nurse practitioner long enough to know what good care feels like — and to recognize when the system makes it nearly impossible to deliver.
+
+15 minutes per appointment. A queue of 20 patients. Electronic health records designed for billing, not for actually knowing someone. You do your best, but you never have enough time to actually ask how they're doing.
+
+The patients I worried about most weren't the sick ones. They were the high-functioning ones. The ones who showed up, described a month of fatigue and fog, got told their labs were fine, and left with a referral they'd never follow up on.
+
+I kept thinking: what if I could just show up? What if the appointment happened in their living room, with a full hour, and my phone number saved in their contacts?
+
+That's not a fantasy. That's a business model. And it's the one I'm building.
+
+Nurses Call The Shots is for the woman who doesn't need a doctor. She needs a provider who actually knows her.
+
+I want to know you before we start. Founding member waitlist is open — link in bio. 🌿
+
+— Coco, NP
+        </div>
+        <div class="post-hashtags">#MeetCoco #NursePractitioner #WhyIBuiltThis #MobileWellness #OaklandNP #ConciergeCare #WomensHealthcare #FounderStory #NursesCallTheShots #BayAreaHealth</div>
+        <div class="post-visual-note">Coco on camera — long-form talking head (60–90 seconds for Reels). Warm interior, natural light, seated and relaxed. This is the most personal post of the calendar. No slides, no B-roll needed. Just Coco, direct to camera, telling the real story. Authenticity is the visual.</div>
+      </div>
+
+      <div class="post-card" data-type="education">
+        <div class="post-card-accent accent-education"></div>
+        <div class="post-card-top">
+          <span class="post-day">Day 17 · Wednesday</span>
+          <div class="post-platforms"><span class="platform-tag platform-ig">IG</span><span class="platform-tag platform-fb">FB</span></div>
+        </div>
+        <span class="post-type-tag type-education">Education</span>
+        <div class="post-headline">NP vs. RN vs. MD. Why it matters who's actually at your door.</div>
+        <div class="post-copy">The credential explainer — accessible, not defensive. Builds confidence in Coco's clinical scope and differentiates NCTS from RN-only competitors.</div>
+        <button class="post-caption-toggle" onclick="toggleCaption(this)">▸ View Full Caption &amp; Hashtags</button>
+        <div class="post-caption-full">
+Let's talk credentials — because in mobile wellness, who's showing up actually matters.
+
+Here's the plain-language breakdown:
+
+🩺 RN (Registered Nurse)
+Trained to administer treatments and provide direct patient care. Skilled, essential, and the backbone of healthcare. Most mobile IV services send RNs. They execute the protocol — they don't write it.
+
+🩺 MD (Medical Doctor)
+8+ years of training, diagnostic authority, prescribing rights. Rarely does house calls. When they do, the overhead is significant and the warmth is often... clinical.
+
+🩺 NP (Nurse Practitioner)
+Master's level clinical training. Independent prescribing rights in California. Diagnostic scope. And — critically — trained in a nursing philosophy that centers the whole person, not just the presenting complaint.
+
+An NP can assess, diagnose, prescribe, adjust, and follow up. Not as a workaround. As a fully licensed independent provider.
+
+When Coco shows up at your door, she's not executing a protocol someone else wrote for you. She's your provider. She knows your chart. She can pivot if something doesn't feel right.
+
+That's the difference.
+
+Founding members get ongoing NP care — not just a drip. Link in bio. 🌿
+        </div>
+        <div class="post-hashtags">#NPvsRN #NursePractitioner #WhatIsAnNP #MobileWellness #ClinicalCredentials #OaklandNP #BayAreaHealth #NursesCallTheShots #ConciergeCare #WomensHealth</div>
+        <div class="post-visual-note">Clean 3-panel carousel — one credential per slide. Cream background, large credential abbreviation in Playfair Display, short description below. Warm and educational without feeling like a textbook. Final slide: "When Coco shows up, you have a provider." NCTS logo + CTA.</div>
+      </div>
+
+      <div class="post-card" data-type="story">
+        <div class="post-card-accent accent-story"></div>
+        <div class="post-card-top">
+          <span class="post-day">Day 19 · Friday</span>
+          <div class="post-platforms"><span class="platform-tag platform-ig">IG</span><span class="platform-tag platform-fb">FB</span></div>
+        </div>
+        <span class="post-type-tag type-story">Client Story</span>
+        <div class="post-headline">"I've had IV therapy before. This was the first time it actually felt like care."</div>
+        <div class="post-copy">First testimonial post. Real client voice, specific detail, emotional truth. The conversion post of Week 3.</div>
+        <button class="post-caption-toggle" onclick="toggleCaption(this)">▸ View Full Caption &amp; Hashtags</button>
+        <div class="post-caption-full">
+She'd been to an IV lounge before. A nice one, actually. Clean space, friendly staff, good music.
+
+She booked the same treatment the second time and the woman at the front desk didn't remember her name.
+
+"It was like a car wash," she told me. "You drive in depleted and you drive out hydrated and nobody knows the difference."
+
+When she reached out to try NCTS, she was skeptical. She'd done the drip thing. She knew what it felt like.
+
+What she didn't expect was that I'd ask about the past three months before I even opened the bag. Or that I'd stay an extra twenty minutes because something she mentioned offhand was worth following up on.
+
+Afterward she texted me: "I've had IV therapy before. This was the first time it actually felt like care."
+
+That sentence is the entire mission statement.
+
+This is what founding membership looks like. A provider who knows you — not just your veins.
+
+Waitlist is open. Link in bio. 🌿
+
+*Shared with permission. Details adjusted for privacy.*
+        </div>
+        <div class="post-hashtags">#ClientStory #MobileIV #NursesCallTheShots #WhatCareLooksLike #OaklandWellness #NursePractitioner #IVTherapy #BayAreaHealth #ConciergeCare #WomensWellness</div>
+        <div class="post-visual-note">Single warm image — Coco's hands setting up an IV bag in a real home environment (kitchen counter, natural light, no clinical surfaces). Or a close-up of an IV drip against a warm blurred background. The "car wash" contrast is in the caption — the image should feel like the opposite: slow, personal, real.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ WEEK 4 ══ -->
+  <div class="week-block">
+    <div class="week-header">
+      <div class="week-num">04</div>
+      <div class="week-theme-block">
+        <div class="week-theme-label">Week 4 Theme</div>
+        <div class="week-theme">Here's what we <em>actually do.</em></div>
+      </div>
+      <div class="week-divider"></div>
+    </div>
+    <div class="posts-grid">
+
+      <div class="post-card" data-type="education">
+        <div class="post-card-accent accent-education"></div>
+        <div class="post-card-top">
+          <span class="post-day">Day 22 · Monday</span>
+          <div class="post-platforms"><span class="platform-tag platform-ig">IG</span><span class="platform-tag platform-fb">FB</span></div>
+        </div>
+        <span class="post-type-tag type-education">Education</span>
+        <div class="post-headline">The Hydration + Recovery IV. Your first yes — and why it works.</div>
+        <div class="post-copy">Service spotlight #1. The easiest entry point explained in plain language — who it's for, what it does, what a session actually feels like.</div>
+        <button class="post-caption-toggle" onclick="toggleCaption(this)">▸ View Full Caption &amp; Hashtags</button>
+        <div class="post-caption-full">
+Let's talk about our most accessible service — and why it's the right starting point for most people.
+
+The Hydration + Recovery IV isn't glamorous. It's not a stack of 12 supplements or a premium add-on menu. It's targeted, clinical hydration delivered where your body can actually use it.
+
+Who it's for:
+🌿 You've been traveling, sick, or running hard and your body hasn't caught up
+🌿 You feel foggy, flat, or low-energy and you can't pinpoint why
+🌿 You've been wanting to try IV therapy and want to start somewhere that makes sense
+
+What happens during a session:
+Coco arrives at your home or office. You talk — actually talk — about what's going on. The IV takes about 45 minutes. She stays. She asks how you're feeling midway. She doesn't leave the second the bag is empty.
+
+What most clients notice:
+The clarity that comes an hour later. The sleep that night. Waking up feeling like a version of themselves they'd forgotten.
+
+Oral hydration and supplements have real bioavailability limits. IV delivery bypasses all of that. It's not magic. It's just a better delivery system.
+
+Founding members get ongoing care — not just one session. Link in bio to join the waitlist. 🌿
+        </div>
+        <div class="post-hashtags">#HydrationIV #MobileIV #NursesCallTheShots #IVTherapyOakland #BayAreaWellness #RecoveryIV #NursePractitioner #ConciergeCare #OaklandHealth #WomensWellness</div>
+        <div class="post-visual-note">Behind-the-scenes — Coco setting up in a real home environment, IV bag prep on a kitchen counter or beside a couch. Warm light, lived-in space. Short Reel showing the setup process with a calm voiceover explaining what's in the bag. 30–45 seconds. Real environments only — no clinical white rooms.</div>
+      </div>
+
+      <div class="post-card" data-type="education">
+        <div class="post-card-accent accent-education"></div>
+        <div class="post-card-top">
+          <span class="post-day">Day 24 · Wednesday</span>
+          <div class="post-platforms"><span class="platform-tag platform-ig">IG</span><span class="platform-tag platform-fb">FB</span></div>
+        </div>
+        <span class="post-type-tag type-education">Education</span>
+        <div class="post-headline">The Immune + Stress Support IV. For the exhaustion that has a reason.</div>
+        <div class="post-copy">Service spotlight #2. The emotional core service — speaks directly to the high-functioning, depleted client who is the NCTS target.</div>
+        <button class="post-caption-toggle" onclick="toggleCaption(this)">▸ View Full Caption &amp; Hashtags</button>
+        <div class="post-caption-full">
+Most of the women who reach out to me aren't sick. They're depleted.
+
+There's a difference — and it matters for what we put in the bag.
+
+The Immune + Stress Support IV is designed for a specific kind of exhaustion: the kind that comes from running high for a long time. Chronic stress is immunosuppressive. It depletes magnesium, B vitamins, vitamin C — the exact nutrients your immune system and nervous system run on.
+
+So when you feel like you're fighting something off constantly, or you can't seem to fully recover from the last thing, or your stress response feels hair-trigger — this is often what's missing.
+
+What's in this IV:
+High-dose vitamin C, B-complex, magnesium, zinc, and targeted electrolytes — formulated for the stress-depleted system, not a one-size-fits-all menu.
+
+Who it's for:
+🌿 You've been getting sick more often than usual
+🌿 You're in a high-demand season and you feel it physically
+🌿 Your nervous system is running on reserve and you need to actually restore, not just cope
+
+This is the IV I'd recommend if I were your NP best friend and you texted me at 10pm saying you couldn't keep going like this.
+
+Founding member waitlist — link in bio. 🌿
+        </div>
+        <div class="post-hashtags">#ImmuneSupport #StressRecovery #MobileIV #NursesCallTheShots #BayAreaHealth #NursePractitioner #OaklandWellness #ChronicStress #WomensHealth #IVTherapy</div>
+        <div class="post-visual-note">Coco on camera explaining this one directly — like she's talking to a friend. Seated, calm, warm interior. "If you texted me at 10pm saying you couldn't keep going like this, this is what I'd recommend." Personal, clinical, warm. The trifecta. 45–60 seconds Reel.</div>
+      </div>
+
+      <div class="post-card" data-type="story">
+        <div class="post-card-accent accent-story"></div>
+        <div class="post-card-top">
+          <span class="post-day">Day 26 · Friday</span>
+          <div class="post-platforms"><span class="platform-tag platform-ig">IG</span><span class="platform-tag platform-fb">FB</span></div>
+        </div>
+        <span class="post-type-tag type-story">Story / Membership</span>
+        <div class="post-headline">What founding membership actually looks like. And why it's built the way it is.</div>
+        <div class="post-copy">The membership post. Explains the why behind the model — relationship over transaction — and makes the founding offer feel exclusive and relational, not salesy.</div>
+        <button class="post-caption-toggle" onclick="toggleCaption(this)">▸ View Full Caption &amp; Hashtags</button>
+        <div class="post-caption-full">
+I want to tell you about the model behind Nurses Call The Shots — because it's not how most IV services work, and I think the difference matters.
+
+Most mobile wellness services operate like this: you book when you feel terrible, someone shows up, you feel better, you forget about it until the next time you feel terrible.
+
+That's a transaction. It's also not how health actually works.
+
+I built a membership model because the women I want to serve don't need a one-time service. They need a provider who knows them over time. Who can see patterns. Who remembers that last month was hard and asks how this month is going.
+
+Founding membership means:
+🌿 Monthly IV sessions at your home or workplace
+🌿 Direct access to Coco — text, questions, follow-up between sessions
+🌿 A real intake and health history before we start (because I want to know you first)
+🌿 The ability to adjust what's in the bag based on what's actually going on
+
+This isn't a subscription box. It's a provider relationship — just structured the way it should have been all along.
+
+We're opening founding spots to our waitlist first. If you've been following along and this sounds like what you've been looking for, now is the time.
+
+Link in bio to join. 🌿
+
+— Coco, NP
+        </div>
+        <div class="post-hashtags">#FoundingMember #MembershipWellness #NursesCallTheShots #ConciergeCare #MobileIV #NursePractitioner #OaklandWellness #BayAreaHealth #RelationshipFirstCare #WomensHealth</div>
+        <div class="post-visual-note">Coco on camera — this one can be slightly more produced. Warm home setting, good natural light. She's explaining the membership like she's talking to a friend who just asked "okay but how does this actually work?" Genuine, not scripted. Alternatively: a clean 3-slide carousel breaking down what membership includes — warm graphic treatment, no price point.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ WEEK 5 ══ -->
+  <div class="week-block">
+    <div class="week-header">
+      <div class="week-num">05</div>
+      <div class="week-theme-block">
+        <div class="week-theme-label">Day 29 · Close</div>
+        <div class="week-theme">This is your <em>invitation.</em></div>
+      </div>
+      <div class="week-divider"></div>
+    </div>
+    <div class="posts-grid">
+
+      <div class="post-card" data-type="engagement">
+        <div class="post-card-accent accent-engagement"></div>
+        <div class="post-card-top">
+          <span class="post-day">Day 29 · Monday</span>
+          <div class="post-platforms"><span class="platform-tag platform-ig">IG</span><span class="platform-tag platform-fb">FB</span></div>
+        </div>
+        <span class="post-type-tag type-engagement">Engagement + CTA</span>
+        <div class="post-headline">Before we launch — I want to know who you are.</div>
+        <div class="post-copy">The month close. Personal, warm, direct from Coco. Turns the waitlist into a relationship before the first session happens.</div>
+        <button class="post-caption-toggle" onclick="toggleCaption(this)">▸ View Full Caption &amp; Hashtags</button>
+        <div class="post-caption-full">
+We're getting close to launch, and I want to say something before we do:
+
+Thank you for being here. For following along. For the DMs and the comments and the "this is exactly what I needed to hear."
+
+Building something new is vulnerable. You put the idea out and you wait to see if it lands. The response to what we're building at Nurses Call The Shots has told me we're on the right track.
+
+Before we open officially, I want to know a little about who's in our community.
+
+Drop one answer below 👇
+
+What brought you here?
+☕ The "your labs look fine" post hit home
+🤒 I've been looking for something exactly like this
+💉 I've done IV therapy before and wanted something better
+👋 A friend sent me something and now I'm intrigued
+🌿 I just followed Coco
+
+And if you're ready to be a founding member — not just a follower — the waitlist is open. When we launch, waitlist members get first access.
+
+Link in bio. I want to know your name before we start. 🌿
+
+— Coco, NP · Nurses Call The Shots
+Oakland, CA
+        </div>
+        <div class="post-hashtags">#NursesCallTheShots #FoundingMember #OaklandWellness #ComingSoon #MobileIV #NursePractitioner #BayAreaHealth #WomensWellness #WaitlistOpen #YourNPBestFriend</div>
+        <div class="post-visual-note">Coco on camera — the most personal, unproduced video of the calendar. Phone camera is fine. She's speaking directly and warmly to the people who've been following along. No slides, no graphics. Just Coco. This is the post where the relationship becomes real. End with: "Link in bio — I want to know your name before we start."</div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /calendar -->
+
+<!-- EXPORT BAR -->
+<div class="export-bar">
+  <button class="export-btn" onclick="window.print()">Print / Save as PDF</button>
+  <span class="export-note">Ctrl+P / Cmd+P · Landscape recommended · All captions expand in print view</span>
+</div>
+
+<script>
+  function toggleCaption(btn) {
+    const card = btn.closest('.post-card');
+    const full = card.querySelector('.post-caption-full');
+    const isOpen = full.classList.contains('open');
+    full.classList.toggle('open');
+    btn.textContent = isOpen ? '▸ View Full Caption & Hashtags' : '▾ Hide Caption';
+  }
+
+  function filterPosts(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.post-card').forEach(card => {
+      if (type === 'all' || card.dataset.type === type) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    document.querySelectorAll('.week-block').forEach(week => {
+      const visible = week.querySelectorAll('.post-card:not(.hidden)');
+      week.style.display = visible.length === 0 ? 'none' : '';
+    });
+  }
+</script>
+
+</body>
+</html>
